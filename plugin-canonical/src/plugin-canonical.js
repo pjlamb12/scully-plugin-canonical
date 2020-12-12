@@ -2,7 +2,7 @@ const { log, logWarn, yellow } = require('@scullyio/scully');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-const setCanonicalLink = async (html, route) => {
+const setCanonicalLinkPlugin = async (html, route) => {
 	try {
 		log(`Changing canonical link for ${yellow(route.route)}.`);
 		const dom = new JSDOM(html);
@@ -37,12 +37,12 @@ const setCanonicalLink = async (html, route) => {
 		}
 	} catch (e) {
 		logWarn(e);
-		logWarn(`Error in setCanonicalLink, didn't parse for route "${yellow(route.route)}"`);
+		logWarn(`Error in setCanonicalLinkPlugin, didn't parse for route "${yellow(route.route)}"`);
 	}
 	// in case of failure return unchanged HTML to keep flow going
 	return html;
 };
 
 module.exports = {
-	setCanonicalLink,
+	setCanonicalLinkPlugin,
 };

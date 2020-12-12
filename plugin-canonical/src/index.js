@@ -1,9 +1,9 @@
 const { registerPlugin } = require('@scullyio/scully');
-const { setCanonicalLink } = require('./plugin-canonical');
+const { setCanonicalLinkPlugin } = require('./plugin-canonical');
 
 const validator = async (config) => [];
-registerPlugin('render', 'setCanonicalLink', setCanonicalLink, validator);
+registerPlugin('render', 'setCanonicalLinkPlugin', setCanonicalLinkPlugin, validator);
 
 module.exports = {
-	setCanonicalLink,
+	setCanonicalLinkPlugin,
 };

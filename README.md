@@ -59,7 +59,7 @@ export const config: ScullyConfig = {
 	projectName: 'your-project-name',
 	outDir: './dist/static',
 	routes: {},
-	defaultPostRenderers: ['setCanonicalLink'],
+	defaultPostRenderers: ['setCanonicalLinkPlugin'],
 };
 ```
 
@@ -77,7 +77,7 @@ export const config: ScullyConfig = {
       slug: {
         folder: './blog'
       },
-      postRenderers: ['setCanonicalLink']
+      postRenderers: ['setCanonicalLinkPlugin']
     }
   }
   ...
