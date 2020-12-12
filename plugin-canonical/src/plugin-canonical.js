@@ -21,7 +21,15 @@ const setCanonicalLink = async (html, route) => {
 			// Solution
 			const linkTag = document.querySelector('link[rel="canonical"]');
 
-			linkTag.setAttribute('href', canonical);
+			if (linkTag) {
+				linkTag.setAttribute('href', canonical);
+			} else {
+				const newLinkTag = document.createElement('link');
+				newLinkTag.setAttribute('rel', 'canonical');
+				newLinkTag.setAttribute('href', canonical);
+				head.appendChild(newLinkTag);
+			}
+
 			log(`Done replacing canonical for ${yellow(route.route)}.`);
 			return dom.serialize();
 		} else {
