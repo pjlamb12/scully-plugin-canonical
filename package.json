@@ -1,0 +1,93 @@
+{
+	"name": "scully-plugin-canonical",
+	"version": "0.0.0",
+	"scripts": {
+		"ng": "ng",
+		"start": "ng serve",
+		"build": "ng build",
+		"test": "ng test",
+		"lint": "ng lint",
+		"e2e": "ng e2e",
+		"jest": "jest",
+		"contributors:add": "all-contributors add",
+		"hooks:pre-commit": "node hooks/pre-commit.js",
+		"commit": "git-cz",
+		"release:first": "npm run release -- --first-release",
+		"build:lib": "ng build scully-plugin-canonical",
+		"test:lib": "jest plugin-canonical/src/plugin-canonical.spec.js",
+		"build:copy-readme": "cp ./README.md ./plugin-canonical && cp ./logo.svg ./plugin-canonical",
+		"release": "cd plugin-canonical && standard-version --infile ../CHANGELOG.md",
+		"test:lib:headless": "cross-env CI=true npm run test:lib",
+		"scully": "scully",
+		"scully:serve": "scully serve"
+	},
+	"private": true,
+	"dependencies": {
+		"@angular/animations": "~11.0.0",
+		"@angular/common": "~11.0.0",
+		"@angular/compiler": "~11.0.0",
+		"@angular/core": "~11.0.0",
+		"@angular/forms": "~11.0.0",
+		"@angular/platform-browser": "~11.0.0",
+		"@angular/platform-browser-dynamic": "~11.0.0",
+		"@angular/router": "~11.0.0",
+		"@ngneat/lib": "^1.0.5",
+		"@scullyio/init": "^1.0.1",
+		"@scullyio/ng-lib": "^1.0.0",
+		"@scullyio/scully": "^1.0.8",
+		"rxjs": "~6.6.0",
+		"tslib": "^2.0.0",
+		"zone.js": "~0.10.2"
+	},
+	"devDependencies": {
+		"@angular-devkit/build-angular": "~0.1100.0",
+		"@angular/cli": "~11.0.0",
+		"@angular/compiler-cli": "~11.0.0",
+		"@commitlint/cli": "^11.0.0",
+		"@commitlint/config-angular": "^8.1.0",
+		"@commitlint/config-conventional": "^11.0.0",
+		"@ngneat/spectator": "latest",
+		"@types/jasmine": "~3.6.0",
+		"@types/node": "^12.11.1",
+		"all-contributors-cli": "^6.8.1",
+		"codelyzer": "^6.0.0",
+		"cross-env": "^5.2.0",
+		"git-cz": "^3.2.1",
+		"husky": "^3.0.1",
+		"jasmine-core": "~3.6.0",
+		"jasmine-spec-reporter": "~5.0.0",
+		"jest": "^26.6.3",
+		"karma": "~5.1.0",
+		"karma-chrome-launcher": "~3.1.0",
+		"karma-coverage": "~2.0.3",
+		"karma-jasmine": "~4.0.0",
+		"karma-jasmine-html-reporter": "^1.5.0",
+		"lint-staged": "^9.2.0",
+		"ng-packagr": "^11.0.0",
+		"prettier": "^2.0.5",
+		"protractor": "~7.0.0",
+		"scully-plugin-canonical": "file:plugin-canonical",
+		"standard-version": "^9.0.0",
+		"ts-node": "~8.3.0",
+		"tslint": "~6.1.0",
+		"typescript": "~4.0.2"
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	},
+	"lint-staged": {
+		"*.{js,json,css,scss,ts,html,component.html}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint $HUSKY_GIT_PARAMS",
+			"pre-commit": "npm run hooks:pre-commit && lint-staged",
+			"pre-push": "npm run test:lib:headless"
+		}
+	}
+}
