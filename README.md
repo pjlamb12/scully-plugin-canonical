@@ -93,9 +93,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/pjlamb12"><img src="https://avatars3.githubusercontent.com/u/2006222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Preston Lamb</b></sub></a><br /><a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Code">💻</a> <a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Documentation">📖</a> <a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Tests">⚠️</a></td>
+  </tr>
+</table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
