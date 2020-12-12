@@ -120,3 +120,5 @@ Using stored unhandled routes!.
 Using stored unhandled routes!.
    To discover new routes in the angular app use "npm run scully -- --scanRoutes"
 ----------------------------------
+TypeError: Cannot read property 'setAttribute' of nullError in setCanonicalLink, didn't parse for route "test-route"
+

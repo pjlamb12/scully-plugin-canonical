@@ -10,16 +10,6 @@
   "commit": true,
   "commitConvention": "angular",
   "contributors": [
-    {
-      "login": "pjlamb12",
-      "name": "Preston Lamb",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/2006222?v=4",
-      "profile": "http://www.prestonlamb.com",
-      "contributions": [
-        "doc",
-        "code"
-      ]
-    }
   ],
   "contributorsPerLine": 7,
   "skipCi": true

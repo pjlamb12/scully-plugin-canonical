@@ -10,15 +10,14 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
 
-# Scully AMP CSS Plugin
+# Scully Canonical Plugin
 
-The purpose of the Scully AMP CSS plugin is to take all `style` tags from rendered pages and combine them into a single style tag located in the `head` tag of a given page. This is a requirement for AMP pages given by Google. [This talk here](https://www.loom.com/share/35330a858cd741ba92e8be0c0496ffbb) talks in some part about this requirement. Scully makes this relatively easy because after each page is rendered, a plugin can be run to do something to that page; in this case to combine all the styles into a single `style` tag.
+The purpose of the Scully canonical plugin is to take a canonical link attribute from a route and replace the value of the canonical link in the head of a page, or add the link tag if it doesn't exist. This is needed for SEO purposes, if a given article was first published on another site, for example.
 
 ## Features
 
-- ✅ Combines the contents of all `style` tags into a single `style` tag
-- ✅ Puts the combined styles into the document's `head` tag
-- ✅ Removes all the extra `style` tags
+- ✅ Replaces the canonical link with the provided URL for the link tag
+- ✅ Adds a canonical link tag if one doesn't exist for a page
 
 ## Table of Contents
 
@@ -38,7 +37,18 @@ The purpose of the Scully AMP CSS plugin is to take all `style` tags from render
 
 ## Usage
 
-To use this plugin, you need to just require the package inside the Scully `config.ts` for your project, i.e. `scully.your-project-name.config.ts`. After requiring the plugin, add it to the `defaultPostRenderers` array for the desired routes that the plugin should be run on. In most (if not all cases), this would be on all routes, but you need to add it to those routes for it to work.
+Render plugins get access to information about the route, and the plugin looks for the title in the following locations in order:
+
+- `route.canonical`
+- `route.data.canonical`
+- `route.canonicalUrl`
+- `route.data.canonicalUrl`
+- `route.canonical_url`
+- `route.data.canonical_url`
+
+> If the canonical url is set in the frontmatter of a markdown file, the attribute shows up on `route.data`.
+
+To use this plugin, you need to just require the package inside the Scully `config.ts` for your project, i.e. `scully.your-project-name.config.ts`. After requiring the plugin, add it to the `defaultPostRenderers` array for the site:
 
 ```ts
 // scully.your-project-name.config.ts
@@ -49,13 +59,32 @@ export const config: ScullyConfig = {
 	projectName: 'your-project-name',
 	outDir: './dist/static',
 	routes: {},
-	defaultPostRenderers: ['combineStylesAmpPlugin'],
+	defaultPostRenderers: ['setCanonicalLink'],
+};
+```
+
+If you only want it to be added to some routes, add it like this:
+
+```ts
+// scully.your-project-name.config.ts
+require('scully-plugin-canonical');
+
+export const config: ScullyConfig = {
+  ...
+  routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './blog'
+      },
+      postRenderers: ['setCanonicalLink']
+    }
+  }
+  ...
 };
 ```
 
 That's all it takes for the plugin to be included and run on the pages in your app.
-
-**_Make sure to run include this plugin before other CSS plugins, like the [critical CSS plugin](https://www.npmjs.com/package/@scullyio/scully-plugin-critical-css)._**
 
 ## Contributors ✨
 
@@ -64,14 +93,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://www.prestonlamb.com"><img src="https://avatars3.githubusercontent.com/u/2006222?v=4" width="100px;" alt=""/><br /><sub><b>Preston Lamb</b></sub></a><br /><a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Documentation">📖</a> <a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Code">💻</a></td>
-  </tr>
-</table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## Logo Attribution
+
+<div>Logo made by <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
