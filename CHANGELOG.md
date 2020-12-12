@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 0.0.0 (2020-12-12)
+
+
+### Features
+
+* 🎸 add plugin ([0bb6e04](https://github.com/pjlamb12/scully-plugin-canonical/commit/0bb6e044e558e437c4ac08814b781d299892ba52)), closes [#1](https://github.com/pjlamb12/scully-plugin-canonical/issues/1)
+
 ## 1.0.0 (2020-12-09)
 
 
