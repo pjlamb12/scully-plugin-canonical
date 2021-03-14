@@ -96,6 +96,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/pjlamb12"><img src="https://avatars3.githubusercontent.com/u/2006222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Preston Lamb</b></sub></a><br /><a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Code">💻</a> <a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Documentation">📖</a> <a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=pjlamb12" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://anglebrackets.dev"><img src="https://avatars.githubusercontent.com/u/1952116?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Duncan</b></sub></a><br /><a href="https://github.com/pjlamb12/scully-plugin-canonical/commits?author=DuncanFaulkner" title="Code">💻</a></td>
   </tr>
 </table>
 
