@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/pjlamb12/scully-plugin-canonical/compare/v1.0.0...v2.0.0) (2021-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **postprocessbyhtml:** updated to latest version of the scully package
+
+### build
+
+* **postprocessbyhtml:** updated plugin to use postProcessByHtml instead of render ([dcdb270](https://github.com/pjlamb12/scully-plugin-canonical/commit/dcdb27073600daf3672b8d9135d0fe67a829c5bd)), closes [#3](https://github.com/pjlamb12/scully-plugin-canonical/issues/3)
+
 ## [1.0.0](https://github.com/pjlamb12/scully-plugin-canonical/compare/v0.0.0...v1.0.0) (2020-12-12)
 
 ## 0.0.0 (2020-12-12)
