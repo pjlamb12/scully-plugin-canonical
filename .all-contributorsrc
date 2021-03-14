@@ -20,6 +20,15 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "DuncanFaulkner",
+      "name": "Duncan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1952116?v=4",
+      "profile": "https://anglebrackets.dev",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
